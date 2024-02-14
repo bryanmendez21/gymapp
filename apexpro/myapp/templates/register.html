@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Create Account {% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+{% endblock %}
+{% block content %}
+<style>
+    body {
+      background-color: rgb(0, 0, 0);
+      background-image: url('static/imgs/equipment.jpg'); /* background image */
+      background-size: 90% auto; /* Cover 90% horizontally and maintain aspect ratio vertically */
+      background-position: center; /* Center the background */
+      background-repeat: no-repeat;
+      color: #bbbbbb; 
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+</style>
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <!-- navigation code -->
+</nav>
+
+<div class="register-container">
+  <h1>Create Account</h1>
+
+  <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Sign up</button>
+  </form>
+
+  <div class="Rlogin-container">
+    <p style="margin-bottom: 0;">Already have an account?</p>
+    <a href="{% url 'login' %}">Login</a>
+  </div>
+</div>
+
+{% endblock content %}

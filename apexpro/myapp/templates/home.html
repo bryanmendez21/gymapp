@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/app.css' %}">
+<link rel="stylesheet" type="text/js" href="{% static '/js/style.js' %}">
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <!--icon and pop up-->
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+        <img src="{% static '/imgs/profile-boy-icon.png' %}" alt="Icon Image">
+      </button>
+
+      <div class="offcanvas offcanvas-start text-bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+          <!--user name-->
+          <h5 class="offcanvas-title" id="offcanvasScrollingLabel">{{request.user}}</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+      </div>
+
+      <!--navigation tabs-->
+      <ul class="nav nav-underline" >
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'home' %}">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'activity' %}">ACTIVITY LOG</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'routine' %}">ROUTINE</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link" href="{% url 'diet' %}">DIET PLANNING</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'composition' %}">BODY COMPOSITION</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'account' %}">ACCOUNT</a>
+        </li>
+      </ul>
+      <!--search-->
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <!--logout-->
+      <ul class="nav nav-underline">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}?next={% url 'login' %}">logout</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+  
+{% endif %}
+{% endblock %}
+
+
+
+
+

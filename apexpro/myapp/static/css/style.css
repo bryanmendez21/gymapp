@@ -1,0 +1,80 @@
+/* login page */
+
+
+.login-container {
+    width: 350px; 
+    padding: 30px; /* Adjusted padding for a cleaner look */
+    background-color: #79666685; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #000000; 
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.login-container p {
+    margin-bottom: 20px; /* Adjust the margin height */
+}
+
+.Lregister-container {
+    margin-top: 40px; /* Adjust the margin height */
+    display: flex;
+    align-items: center;
+  }
+  
+.Lregister-container p {
+    margin-right: 10px; /* Adjust the margin  */
+  }
+
+
+
+/* for registration page */
+.register-container {
+    width: 700px; /* width of box */
+    padding: 30px; /*  padding for a cleaner look */
+    background-color: #f5f5f5; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-top: 80px; /* Adjust the margin */
+    display: flexbox;
+    align-items: center;
+}
+
+.register-container h1 {
+    text-align: center;
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.register-container p {
+    margin-bottom: 20px; /* Adjust the height */
+}
+
+.Rlogin-container {
+    margin-top: 40px; /* Adjust the margin */
+    display: flex;
+    align-items: center;
+  }
+  
+.Rlogin-container p {
+    margin-right: 10px; /* Adjust the height */
+  }
+
+
+
+/* Color for the login and register buttons */
+.btn-primary {
+    display: block; 
+    margin: 0 auto; /* Center the button */
+    background-color: #007bff; 
+    border-color: #130e9f; 
+    width: 100%; /* Take up full width */
+}
+
+.btn-primary:hover {
+    background-color: #041549; /* Darker blue for hover effect */
+    border-color: #130e9f;
+}

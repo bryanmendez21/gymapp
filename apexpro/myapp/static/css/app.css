@@ -1,0 +1,48 @@
+body {
+    background-color: rgb(51, 19, 19);
+    color: #bbbbbb; /* Light Gray */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* styles for the small and round button */
+.btn-primary {
+    background-color: beige;
+    border-radius: 50%;
+    width: 45px; /* Adjust the width and height */
+    height: 45px;
+    padding: 0; /* Remove padding to make it round */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+.btn-primary img {
+    width: 100%; /* Make sure the image fills the round button */
+    border-radius: 50%; /* Ensure the image itself is also round */
+  }
+
+.nav-link {
+    color: white;
+    font-family: fantasy;
+}
+
+.content {
+  text-align: bottom;
+  background-color: #fff; /* Set the background color of the content */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ACCOUNT */
+.account-container {
+  background-color: #000000ce;
+  padding: 20px; /*add padding to the container */
+  position: relative; /* Set the position to relative */
+  transform: translateY(20%); /* Move the content up by 50% of its own height */
+  text-align: center;
+}

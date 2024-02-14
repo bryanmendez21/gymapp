@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/app.css' %}">
+<link rel="stylesheet" type="text/js" href="{% static '/js/style.js' %}">
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <!-- icon and pop up-->
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+        <img src="{% static '/imgs/profile-boy-icon.png' %}" alt="Icon Image">
+      </button>
+
+      <div class="offcanvas offcanvas-start text-bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+          <!--user name-->
+          <h5 class="offcanvas-title" id="offcanvasScrollingLabel">{{request.user}}</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <p>info</p>
+        </div>
+      </div>
+
+      <!--navigation tabs-->
+      <ul class="nav nav-underline" >
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'home' %}">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'activity' %}">ACTIVITY LOG</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'routine' %}">ROUTINE</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link" href="{% url 'diet' %}">DIET PLANNING</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'composition' %}">BODY COMPOSITION</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'account' %}">ACCOUNT</a>
+        </li>
+      </ul>
+      <!--search-->
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <!--logout-->
+      <ul class="nav nav-underline">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}?next={% url 'login' %}">logout</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+<!--account info-->
+  <div class="account-container">
+    <h2>Account Information</h2>
+    <form id="accountForm">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="measurementUnits">Measurement Units:</label>
+        <select id="measurementUnits" name="measurementUnits" required>
+          <option value="imperial">Imperial</option>
+          <option value="metric">Metric</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="timeZone">Time Zone:</label>
+        <input type="text" id="timeZone" name="timeZone" required>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="birthDate">Birth Date:</label>
+        <input type="date" id="birthDate" name="birthDate" required>
+      </div>
+      <h3>Change Your Password</h3>
+      <div class="form-group">
+        <label for="currentPassword">Current Password:</label>
+        <input type="password" id="currentPassword" name="currentPassword">
+      </div>
+      <div class="form-group">
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword">
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm New Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword">
+      </div>
+      <button type="submit">Update Account</button>
+    </form>
+  </div>
+  
+  
+{% endif %}
+{% endblock %}
